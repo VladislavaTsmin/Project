@@ -1,0 +1,47 @@
+.wrapper {
+    height: 392px;
+    max-width: 316px;
+}
+
+.header {
+    height: 350px;
+}
+
+.cardImage {
+    max-width: 316px;
+    height: 350px;
+    border-radius: var(--radiusbig);
+    @media screen and (max-width: 1000px ) {
+        width: 225px;
+    }
+    @media screen and (max-width: 768px) {
+        width: 354px;
+    }
+    @media screen and (max-width: 480px) {
+        width: 210px;
+        height: 257px;     
+    }
+    @media screen and (max-width: 360px) {
+        width: 320px;
+        height: 220px;
+    }
+}
+
+.info {
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 26px;
+    text-align: center;
+
+    @media screen and (max-width:480px){
+        font-size: 18px;
+        line-height: 23.4px;
+    }
+
+}
+
+// width: 316px;
+// height: 350px;
+// border-radius: var(--radiusbig);
+// opacity: 0px;

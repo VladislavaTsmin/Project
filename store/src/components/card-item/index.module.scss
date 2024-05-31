@@ -1,0 +1,58 @@
+.wrapper {
+  height: 250px;
+  max-width: 150px;
+}
+
+.header {
+  position: relative;
+  height: 150px;
+  background-color: #ccc;
+}
+
+.discount {
+  background-color: orange;
+  color: #fff;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+%icon {
+  position: absolute;
+  right: 10px;
+  width: 25px;
+  height: 25px;
+  fill: #fff;
+  stroke: #fff;
+  cursor: pointer;
+}
+
+.heart {
+  @extend %icon;
+  top: 10px;
+}
+
+.cart {
+  @extend %icon;
+  top: 45px;
+}
+
+.cardImage {
+  max-width: 160px;
+}
+
+.info {
+  padding: 10px;
+  border-top: 1px solid lightgray;
+}
+
+.description {
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.oldPrice{
+  text-decoration: line-through;
+}
