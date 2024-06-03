@@ -1,5 +1,5 @@
-import {createSlice} from '@reduxjs/toolkit';
-import { getAllItems, getAllCategories } from './async-actions';
+import { createSlice } from '@reduxjs/toolkit';
+import { fetchAllItems, fetchAllCategories } from './async-actions';
 
 const initialState = {
     category: null,
@@ -14,41 +14,41 @@ const shopSlice = createSlice({
     name: "shop",
     initialState,//что хранится 
     reducers: {
-        setItems: (state, {payload}) => { // что делать
+        setItems: (state, { payload }) => { // что делать
             state.items = payload;
         },
-        setCategory: (state, {payload}) => {
+        setCategory: (state, { payload }) => {
             state.categories = payload;
         },
-        setIsLoading: (state, {payload}) => {
+        setIsLoading: (state, { payload }) => {
             state.isLoading = payload;
         }                                  //
     },
-    
+
     //getAllItems
     extraReducers: (builder) => {
-        builder.addCase(getAllItems.pending, (state) => {
+        builder.addCase(fetchAllItems.pending, (state) => {
             state.isLoading = true;
         })
-        builder.addCase(getAllItems.fulfilled, (state, {payload}) => {
+        builder.addCase(fetchAllItems.fulfilled, (state, { payload }) => {
             state.isLoading = false;
             state.items = payload;
         })
-        builder.addCase(getAllItems.rejected, (state, action) => {
+        builder.addCase(fetchAllItems.rejected, (state, action) => {
             state.isLoading = false;
             state.error = action.error.message;
         })
 
 
         //getAllCategories
-        builder.addCase(getAllCategories.pending, (state) => {
+        builder.addCase(fetchAllCategories.pending, (state) => {
             state.isLoading = true;
         })
-        builder.addCase(getAllCategories.fulfilled, (state, {payload}) => {
+        builder.addCase(fetchAllCategories.fulfilled, (state, { payload }) => {
             state.isLoading = false;
             state.categories = payload;
         })
-        builder.addCase(getAllCategories.rejected, (state, action) => {
+        builder.addCase(fetchAllCategories.rejected, (state, action) => {
             state.isLoading = false;
             state.error = action.error.message;
         })
@@ -57,6 +57,6 @@ const shopSlice = createSlice({
 });
 
 
-export const {setItems, setCategory, setIsLoading} = shopSlice.actions;
+export const { setItems, setCategory, setIsLoading } = shopSlice.actions;
 
 export default shopSlice.reducer;

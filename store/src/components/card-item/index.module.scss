@@ -46,13 +46,14 @@
   border-top: 1px solid lightgray;
 }
 
-.description {
+// .description 
+.title {
   max-width: 100%;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
 
-.oldPrice{
+.oldPrice {
   text-decoration: line-through;
 }

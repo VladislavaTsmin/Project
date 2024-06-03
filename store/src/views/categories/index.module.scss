@@ -1,10 +1,21 @@
+.wrapper {
+    max-width: 360px;
+    max-width: 528px;
+    top: 244px;
+    left: 40px;
+    gap: 40px;
+}
+
+
+
 .categoriesText {
-    background: #424436;
     font-family: Montserrat;
     font-size: 64px;
     font-weight: 700;
     line-height: 70.4px;
     text-align: left;
+
+
 
     @media screen and (max-width:768px) {
         font-size: 56px;
@@ -22,13 +33,13 @@
     }
 }
 
-.categoriesText.dark {
-    background: #FFFFFF;
-}
+// .categoriesText.dark {
+//     background: #FFFFFF;
+// }
 
 .categoriesLayout {
-    width: 1360px;
-    height: 528px;
+    max-width: 1360px;
+    max-height: 528px;
     top: 244px;
     left: 40px;
     display: flex;
@@ -36,9 +47,9 @@
     align-items: center;
 }
 
-.categoriesLayout.dark {
-    color: #424436;
-}
+// .categoriesLayout.dark {
+//     color: #424436;
+// }
 
 //display: flex;
 // justify-content: space-between;

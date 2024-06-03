@@ -1,48 +1,35 @@
-import React, {useEffect, useState,useContext} from "react";
-// import { Link } from "react-router-dom";
-import { BASE_URL } from "../../constants";
+import React, { useEffect } from "react";
+import { getAllCategories } from "../../store/selectors";
 import { CardCategory } from "../../components/card-category";
-import cn from "classnames";
-import { themeContext } from "../../context/theme";
-import styles from "./index.module.scss"
-
-
-
+import { fetchAllCategories } from "../../store/async-actions";
+import { useDispatch, useSelector } from "react-redux";
+import styles from "./index.module.scss";
 
 export const CategoriesLayout = () => {
+  const dispatch = useDispatch();
+  const categories = useSelector(getAllCategories);
 
-  const [categories, setCategories] = useState([]);
-  const {theme, switchTheme} = useContext(themeContext);
+  useEffect(() => {
+    dispatch(fetchAllCategories());
+  }, [dispatch]);
 
-  useEffect(fetch(`${BASE_URL}/categories/all`)
-  .then((res)=>{
-    return res.json();
-  }).then((data)=>{
-    setCategories(data);
-  }));
 
-  const filtredCategories = categories.filter(({index})=>{
-    if(index < 5 ){
-      return true;
-    }else{
-      return false;
-    }
-  });
-
-return (
-  <>
-  <h2 className={cn(styles.categoriesText, {
-          [styles.dark]: theme === "dark",
-        })}>Categories</h2>
-    <div  className={cn(styles.categoriesLayout, {
-        [styles.dark]: theme === "dark",
-      })}>
-      {filtredCategories.map(({ image, id, title }) => (
-        <CardCategory image={image} title={title} key={id} id={id}/>
-      ))}
-    </div>
-  </>
-);
+  return (
+    <>
+      <div className={styles.wrapper}> 
+        <h2 className={styles.categoriesText}>Categories</h2>
+        <div className={styles.categoriesLayout}>
+          {categories.map(({ image, id, title }) => (
+            <CardCategory
+              image={image}
+              title={title}
+              key={id}
+              id={id} />
+          ))}
+        </div>
+      </div>
+    </>
+  );
 };
 
 //       return (

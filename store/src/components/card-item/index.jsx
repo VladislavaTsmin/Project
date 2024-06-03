@@ -5,10 +5,10 @@ import { BASE_URL } from "../../constants";
 
 export const CardItem = ({
   price,
-  description,
+  title,
   image,
   discont,
-  discontPercent,
+  discontPercent
 }) => {
   return (
     <div className={styles.wrapper}>
@@ -19,7 +19,7 @@ export const CardItem = ({
         <CartIcon className={styles.cart} />
       </div>
       <div className={styles.info}>
-        <div className={styles.description}>{description}</div>
+        <div className={styles.title}>{title}</div>
         <div className={styles.prices}>
           <div className={styles.newPrice}>{discont}</div>
           <div className={styles.oldPrice}>{price}</div>
